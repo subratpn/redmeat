@@ -16,12 +16,19 @@ public class UserController {
     UserRepository userRepository;
 
     @GetMapping("users")
-    public List<User> findAllUsers(){
+    public List<User> findAllUsers() {
         return userRepository.findAll();
     }
 
-    @GetMapping("users/{mobile}")
-    public User findUser(@PathVariable String mobile){
+    @GetMapping("users/mobile/{mobile}")
+    public User findUserByMobile(@PathVariable String mobile) {
         return userRepository.findByMobile(mobile);
     }
+
+    @GetMapping("users/city/{city}")
+    public List<User> findUserByCity(@PathVariable String city) {
+        return userRepository.findAllByCity(city);
+    }
+
+
 }
