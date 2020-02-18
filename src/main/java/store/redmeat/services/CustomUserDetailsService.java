@@ -13,7 +13,10 @@ import store.redmeat.models.User;
 import store.redmeat.repositories.RoleRepository;
 import store.redmeat.repositories.UserRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
@@ -41,9 +44,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     private List<GrantedAuthority> getUserAuthority(Set<Role> userRoles) {
         Set<GrantedAuthority> roles = new HashSet<>();
-        userRoles.forEach((role) -> {
-            roles.add(new SimpleGrantedAuthority(role.getRole()));
-        });
+        userRoles.forEach((role) -> roles.add(new SimpleGrantedAuthority(role.getRole())));
 
         return new ArrayList<>(roles);
     }
@@ -59,6 +60,7 @@ public class CustomUserDetailsService implements UserDetailsService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setEnabled(true);
+        Set<String> roles = new HashSet<>();
         user.setRoles(user.getRoles());
         userRepository.save(user);
     }

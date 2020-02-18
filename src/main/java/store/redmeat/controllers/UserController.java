@@ -20,7 +20,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("user/{mobile}")
+    @GetMapping("users/{mobile}")
     public User findUser(@PathVariable String mobile){
         return userRepository.findByMobile(mobile);
     }

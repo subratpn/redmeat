@@ -1,20 +1,12 @@
 package store.redmeat.models;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-@Document(collection = "images")
+@Data
+@EqualsAndHashCode
 public class Image {
 
-    @Id
     private String url;
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
 
 }
