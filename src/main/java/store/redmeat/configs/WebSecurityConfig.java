@@ -30,7 +30,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         UserDetailsService userDetailsService = mongoUserDetails();
         auth.userDetailsService(userDetailsService).passwordEncoder(bCryptPasswordEncoder());
-
     }
 
     @Override

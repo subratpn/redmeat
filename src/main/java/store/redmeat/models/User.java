@@ -20,8 +20,8 @@ public class User {
     private Set<Role> roles;
     @DBRef
     private Image profilePicture;
-
-
+    @DBRef
+    private Address deliveryAddress;
 
     public String getMobile() {
         return mobile;
@@ -69,5 +69,13 @@ public class User {
 
     public void setProfilePicture(Image profilePicture) {
         this.profilePicture = profilePicture;
+    }
+
+    public Address getDeliveryAddress() {
+        return deliveryAddress;
+    }
+
+    public void setDeliveryAddress(Address deliveryAddress) {
+        this.deliveryAddress = deliveryAddress;
     }
 }
