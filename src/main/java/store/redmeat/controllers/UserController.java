@@ -1,14 +1,16 @@
 package store.redmeat.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import store.redmeat.models.User;
 import store.redmeat.repositories.UserRepository;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 public class UserController {
 
@@ -20,15 +22,11 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @GetMapping("users/mobile/{mobile}")
-    public User findUserByMobile(@PathVariable String mobile) {
+    @GetMapping("user/mobile")
+    public User findUserByMobile(@RequestParam("id") String mobile) {
         return userRepository.findByMobile(mobile);
     }
 
-    @GetMapping("users/city/{city}")
-    public List<User> findUserByCity(@PathVariable String city) {
-        return userRepository.findAllByCity(city);
-    }
 
 
 }

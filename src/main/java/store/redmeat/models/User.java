@@ -1,23 +1,26 @@
 package store.redmeat.models;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.persistence.*;
 import java.util.Set;
 
-@Document(collection = "users")
 @Data
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String mobile;
     private String password;
+    private String email;
     private String fullName;
-    private boolean enabled;
+    @OneToMany
     private Set<Role> roles;
-    private Image profilePicture;
-    private Address deliveryAddress;
+    @OneToOne
+    private Cart cart;
 
 
 }

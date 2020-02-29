@@ -1,16 +1,12 @@
 package store.redmeat.repositories;
 
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import store.redmeat.models.Role;
 
-import java.util.Set;
-
 @Repository
-public interface RoleRepository extends MongoRepository<Role, String> {
+public interface RoleRepository extends JpaRepository<Role, String> {
 
     Role findByRole(String s);
-
-    Set<Role> findAllByRole(Set<String> roles);
 
 }

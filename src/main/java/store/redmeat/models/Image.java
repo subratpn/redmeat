@@ -1,12 +1,17 @@
 package store.redmeat.models;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
+import javax.persistence.*;
 
 @Data
-@EqualsAndHashCode
+@Entity
+@Table(name = "images")
 public class Image {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String url;
 
 }

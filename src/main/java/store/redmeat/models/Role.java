@@ -1,14 +1,18 @@
 package store.redmeat.models;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "roles")
+import javax.persistence.*;
+
 @Data
+@Entity
+@Table(name = "roles")
 public class Role {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String role;
+
 
 }

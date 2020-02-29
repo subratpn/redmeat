@@ -3,15 +3,19 @@ package store.redmeat.models;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "addresses")
-public class Address {
+@Table(name = "carts")
+public class Cart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String city;
+    @OneToMany
+    private List<Product> products;
+    private String value;
+    private int noOfItems;
 
 }
