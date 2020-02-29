@@ -13,6 +13,7 @@ public class User {
     @Id
     private String mobile;
     private String password;
+    private String email;
     private String fullName;
     private boolean enabled;
     private Set<Role> roles;
