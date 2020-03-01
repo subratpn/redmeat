@@ -13,7 +13,7 @@ public class Cart {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Product> products;
     private String value;
     private int noOfItems;

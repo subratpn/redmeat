@@ -1,11 +1,13 @@
 package store.redmeat.models;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
 
 @Data
+@ToString
 @Entity
 @Table(name = "products")
 public class Product {

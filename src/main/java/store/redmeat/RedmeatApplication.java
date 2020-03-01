@@ -6,7 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 import store.redmeat.models.Role;
+import store.redmeat.repositories.ProductRepository;
 import store.redmeat.repositories.RoleRepository;
+import store.redmeat.repositories.UserRepository;
+
+import javax.persistence.EntityManager;
 
 
 @EnableSwagger2
@@ -15,6 +19,12 @@ public class RedmeatApplication implements CommandLineRunner {
 
 	@Autowired
 	RoleRepository roleRepository;
+
+	@Autowired
+	ProductRepository productRepository;
+
+	@Autowired
+	EntityManager entityManager;
 
 	public static void main(String[] args) {
 		SpringApplication.run(RedmeatApplication.class, args);
@@ -35,5 +45,7 @@ public class RedmeatApplication implements CommandLineRunner {
 			newCustomerRole.setRole("CUSTOMER");
 			roleRepository.save(newCustomerRole);
 		}
+
+
 	}
 }

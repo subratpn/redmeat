@@ -17,7 +17,7 @@ public class User {
     private String password;
     private String email;
     private String fullName;
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
     @OneToOne
     private Cart cart;

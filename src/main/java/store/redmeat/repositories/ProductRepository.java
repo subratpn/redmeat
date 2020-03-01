@@ -16,4 +16,5 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     List<Product> findAll();
 
 
+    List<Product> findAllByCityId(Integer id);
 }
